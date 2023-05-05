@@ -34,7 +34,7 @@ const CreateAccount = () => {
   }
 
   const createDBUser = (data) => {
-    console.log(data);
+    // console.log(data);
     const updateData = {
       name: data.name,
       email: data.email,

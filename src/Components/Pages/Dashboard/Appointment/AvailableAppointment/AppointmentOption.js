@@ -4,7 +4,7 @@ import "../../../../CSS/Button.css";
 
 const AppointmentOption = ({ option, setCounseling }) => {
   const { name, slots } = option;
-  console.log(option);
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl text-black hover:bg-red-100">
       <div

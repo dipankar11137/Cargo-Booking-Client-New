@@ -4,7 +4,6 @@ import { Link, Outlet } from "react-router-dom";
 import {
   FaHome,
   FaPeopleArrows,
-  FaHandsHelping,
   FaEdit,
   FaSignOutAlt,
   FaUserAlt,

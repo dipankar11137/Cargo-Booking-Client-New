@@ -22,17 +22,17 @@ const Profile = () => {
     e.preventDefault();
 
     const name = e.target.name.value || dbUser[0].name;
-    const birthday = e.target.birthday.value || dbUser.birthday;
+    // const birthday = e.target.birthday.value || dbUser.birthday;
     const phone = e.target.phone.value || dbUser[0].phone;
-    const sex = e.target.sex.value || dbUser[0].sex;
+    // const sex = e.target.sex.value || dbUser[0].sex;
     const bio = e.target.bio.value || dbUser[0].bio;
     const photo = e.target.photo.value || dbUser[0].photo;
-    console.log(name, birthday, phone, sex, bio, photo);
+    // console.log(name, birthday, phone, sex, bio, photo);
     const updatedProfile = {
       name,
-      birthday,
+      // birthday,
       phone,
-      sex,
+      // sex,
       bio,
       photo,
     };
@@ -76,7 +76,7 @@ const Profile = () => {
           <div className="mt-32 pl-4 w-full ">
             <div className="text-left py-8">
               <div className="flex items-baseline justify-between">
-                <p className="font-bold w-1/3">Name</p>
+                <p className="font-bold w-1/3">Ship Name</p>
                 <span className="w-2/3">: {dbUser[0]?.name}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
@@ -84,16 +84,16 @@ const Profile = () => {
                 <span className="w-2/3">: {dbUser[0]?.email}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Birthday</p>
-                <span className="w-2/3">: {dbUser[0]?.birthday}</span>
+                <p className="font-bold w-1/3">Country</p>
+                <span className="w-2/3">: {dbUser[0]?.country}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <p className="font-bold w-1/3">Phone</p>
                 <span className="w-2/3">: {dbUser[0]?.phone}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Sex</p>
-                <span className="w-2/3">: {dbUser[0]?.sex}</span>
+                <p className="font-bold w-1/3">Ship Code</p>
+                <span className="w-2/3">: {dbUser[0]?.shipCode}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
                 <p className="font-bold w-1/3">Bio</p>
@@ -135,7 +135,7 @@ const Profile = () => {
                 <div className="flex gap-4 justify-between">
                   <div className="form-control w-full max-w-xs">
                     <label className="label">
-                      <span className="label-text text-white">Full Name</span>
+                      <span className="label-text text-white">Ship Name</span>
                     </label>
                     <input
                       name="name"
@@ -144,7 +144,7 @@ const Profile = () => {
                       className="input input-sm input-bordered w-full max-w-xs"
                     />
                   </div>
-                  <div className="form-control w-full max-w-xs">
+                  {/* <div className="form-control w-full max-w-xs">
                     <label className="label">
                       <span className="label-text text-white">
                         Date of Birth
@@ -156,7 +156,7 @@ const Profile = () => {
                       placeholder="Type here"
                       className="input input-sm input-bordered w-full max-w-xs"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <div className="flex gap-4 justify-between mt-4">
                   <div className="form-control w-full max-w-xs">
@@ -166,11 +166,11 @@ const Profile = () => {
                     <input
                       name="phone"
                       type="text"
-                      placeholder="Type here"
+                      placeholder="Type here Phone Number"
                       className="input input-sm input-bordered w-full max-w-xs"
                     />
                   </div>
-                  <div className="form-control w-full max-w-xs">
+                  {/* <div className="form-control w-full max-w-xs">
                     <label className="label">
                       <span className="label-text text-white">Sex</span>
                     </label>
@@ -179,13 +179,13 @@ const Profile = () => {
                       className="select select-sm select-bordered w-full max-w-xs"
                     >
                       <option disabled selected>
-                        {/* {dbUser?.sex} */}
+                    
                       </option>
                       <option>Male</option>
                       <option>Female</option>
                       <option>Common</option>
                     </select>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="flex gap-4 justify-between mt-4">
                   <div className="form-control w-full">
