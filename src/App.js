@@ -11,9 +11,9 @@ import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./Components/Share/NotFound";
 import Dashboard from "./Components/Pages/Dashboard/Dashboard";
 import Profile from "./Components/Pages/Dashboard/Profile/Profile";
-import Booking from "./Components/Pages/Dashboard/Boooking/Booking";
 import AppointmentBanner from "./Components/Pages/Dashboard/Appointment/AppointmentBanner/AppointmentBanner";
 import Appointment from "./Components/Pages/Dashboard/Appointment/Appointment/Appointment";
+import Bookings from "./Components/Pages/Dashboard/Boooking/Bookings";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         {/* Dashboard Start */}
         <Route path="/" element={<Dashboard />}>
           <Route index element={<Home />} />
-          <Route path="booking" element={<Booking />} />
+          <Route path="booking" element={<Bookings />} />
           <Route path="appointment" element={<Appointment />} />
           <Route path="profile" element={<Profile />} />
           {/* <Route path="manageCounseling" element={<ManageCounselings />} />

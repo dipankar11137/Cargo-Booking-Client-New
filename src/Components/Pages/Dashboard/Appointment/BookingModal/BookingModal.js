@@ -1,47 +1,61 @@
 import { format } from "date-fns";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import auth from "../../../../../firebase.init";
 
 const BookingModal = ({ counseling, selectDate, setCounseling, refetch }) => {
+  const [authUser] = useAuthState(auth);
+  const email = authUser?.email;
   const date = format(selectDate, "PP");
   const { name, slots } = counseling;
-  // const [user] = User();
+  const [ship, setShip] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/user/${email}`)
+      .then((res) => res.json())
+      .then((data) => setShip(data));
+  }, [email]);
+
+  // console.log(ship[0]);
 
   const handleBooking = (event) => {
     event.preventDefault();
-    // const form = event.target;
-    // const slot = form.slot.value;
-    // const problem = form.problem.value;
-    // const phone = form.phone.value;
+    const form = event.target;
+    const slot = form.slot.value;
+    const description = form.description.value;
+    const phone = form.phone.value;
 
-    // const booking = {
-    //   appointmentDate: date,
-    //   slot,
-    //   teacherName: name,
-    //   // studentName: user?.name,
-    //   // studentID: user?.iId,
-    //   // studentsEmail: user?.email,
-    //   // email: counseling?.email,
-    //   // phone: phone || user?.phone,
-    //   // studentImg: user?.image,
-    //   problem,
-    // };
+    // console.log(slot, description, phone);
+    const booking = {
+      terminalName: name,
+      date,
+      slot,
+      description,
+      phone,
+      name: ship[0]?.name,
+      img: ship[0]?.img,
+      email,
+      shipCode: ship[0]?.shipCode,
+    };
+    // console.log(booking);
 
-    // fetch("http://localhost:5000/bookings", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(booking),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data?.acknowledged) {
-    //       setCounseling(null);
-    //       toast.success("Booking Confirmed");
-    //       refetch();
-    //     }
-    //   });
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.acknowledged) {
+          setCounseling(null);
+          toast.success(
+            `${ship[0]?.name} ship Booking Confirmed Slots ${slot}`
+          );
+          refetch();
+        }
+      });
   };
 
   return (
@@ -75,9 +89,9 @@ const BookingModal = ({ counseling, selectDate, setCounseling, refetch }) => {
             </select>
 
             <textarea
-              name="problem"
+              name="description"
               type="Text"
-              placeholder="Your Problems"
+              placeholder="Your Description"
               className="input input-bordered input-primary pt-1 h-20 w-full  mt-2"
             />
             <input

@@ -68,7 +68,7 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link className="aLink" to="/dashboard/booking">
+                <Link className="aLink" to="/booking">
                   <span className="icon">
                     <FaEdit className="text-4xl mt-3 ml-2" />
                   </span>
@@ -84,7 +84,7 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link className="aLink " to="/dashboard/booking">
+                <Link className="aLink " to="/booking">
                   <span className="icon">
                     <FaSignOutAlt className="text-4xl mt-3 ml-2" />
                   </span>

@@ -1,6 +1,5 @@
 import React from "react";
 import { DayPicker } from "react-day-picker";
-import { format } from "date-fns";
 
 const AppointmentBanner = ({ selectDate, setSelectDate }) => {
   return (
