@@ -6,7 +6,7 @@ import "../../../../CSS/Style.css";
 const Appointment = () => {
   const [selectDate, setSelectDate] = useState(new Date());
   return (
-    <div>
+    <div className="text-white ">
       <AppointmentBanner
         selectDate={selectDate}
         setSelectDate={setSelectDate}

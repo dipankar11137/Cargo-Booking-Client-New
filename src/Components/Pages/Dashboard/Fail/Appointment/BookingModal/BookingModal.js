@@ -9,45 +9,45 @@ const BookingModal = ({ counseling, selectDate, setCounseling, refetch }) => {
 
   const handleBooking = (event) => {
     event.preventDefault();
-    const form = event.target;
-    const slot = form.slot.value;
-    const problem = form.problem.value;
-    const phone = form.phone.value;
+    // const form = event.target;
+    // const slot = form.slot.value;
+    // const problem = form.problem.value;
+    // const phone = form.phone.value;
 
-    const booking = {
-      appointmentDate: date,
-      slot,
-      // teacherName: name,
-      // studentName: user?.name,
-      // studentID: user?.iId,
-      // studentsEmail: user?.email,
-      // email: counseling?.email,
-      // phone: phone || user?.phone,
-      // studentImg: user?.image,
-      problem,
-    };
+    // const booking = {
+    //   appointmentDate: date,
+    //   slot,
+    //   teacherName: name,
+    //   // studentName: user?.name,
+    //   // studentID: user?.iId,
+    //   // studentsEmail: user?.email,
+    //   // email: counseling?.email,
+    //   // phone: phone || user?.phone,
+    //   // studentImg: user?.image,
+    //   problem,
+    // };
 
-    fetch("http://localhost:5000/bookings", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(booking),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.acknowledged) {
-          setCounseling(null);
-          toast.success("Booking Confirmed");
-          refetch();
-        }
-      });
+    // fetch("http://localhost:5000/bookings", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(booking),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data?.acknowledged) {
+    //       setCounseling(null);
+    //       toast.success("Booking Confirmed");
+    //       refetch();
+    //     }
+    //   });
   };
 
   return (
     <>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
-      <div className="modal">
+      <div className="modal text-black">
         <div className="modal-box relative">
           <label
             htmlFor="booking-modal"

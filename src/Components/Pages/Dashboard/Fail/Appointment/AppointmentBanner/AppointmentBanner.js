@@ -10,6 +10,13 @@ const AppointmentBanner = ({ selectDate, setSelectDate }) => {
       </h1>
       <div className="hero mt-8 ">
         <div className="hero-content flex-col lg:flex-row-reverse">
+          {/* <img
+            style={{ width: "500px", height: "350px" }}
+            src="https://img.freepik.com/premium-photo/transportation-logistics-container-cargo-ship-cargo-plane-3d-rendering-illustration_37416-487.jpg?w=2000"
+            alt="cargo"
+            className=" rounded-lg shadow-2xl"
+          /> */}
+
           <div
             style={{
               boxShadow: "5px 5px 10px blue",
