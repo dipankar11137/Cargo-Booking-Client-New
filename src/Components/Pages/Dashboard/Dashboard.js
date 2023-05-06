@@ -11,11 +11,29 @@ import {
 } from "react-icons/fa";
 import "../../CSS/DashboardStyle.css";
 import cargo from "../../../Images/Cargo logo/cargo1.png";
+import { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [authUser] = useAuthState(auth);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/user/${authUser?.email}`)
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, [users, authUser?.email]);
+
   const handleToggle = () => {
     const navigation = document.querySelector(".navigation");
     navigation.classList.toggle("active");
+  };
+
+  const handleSignOut = () => {
+    signOut(auth);
   };
 
   return (
@@ -34,14 +52,12 @@ const Dashboard = () => {
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
             <ul className="  ">
               <li style={{ marginLeft: "-12px", marginBottom: "100px" }}>
-                <Link className="aLink flex justify-center" to="/">
-                  <FaShip className="text-6xl" />
-                  {/* <img
-                    className="h-20 w-20 "
-                    // src="https://cdn-icons-png.flaticon.com/512/8047/8047721.png"
-                    src={cargo}
+                <Link to="/" className="aLink flex justify-center">
+                  <img
+                    className="h-20 w-20 rounded-full"
+                    src={users[0]?.img || cargo}
                     alt=""
-                  /> */}
+                  />
                 </Link>
               </li>
               {/* start */}
@@ -80,7 +96,7 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link className="aLink " to="/booking">
+                <Link onClick={handleSignOut} className="aLink ">
                   <span className="icon">
                     <FaSignOutAlt className="text-4xl mt-3 ml-2" />
                   </span>

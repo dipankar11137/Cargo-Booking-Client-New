@@ -8,7 +8,6 @@ import BookingModal from "../BookingModal/BookingModal";
 const AvailableAppointment = ({ selectDate }) => {
   const [counseling, setCounseling] = useState(null);
   const date = format(selectDate, "PP");
-  console.log("set", counseling);
   const {
     data: appointmentOptions = [],
     refetch,
