@@ -10,29 +10,26 @@ const Profile = () => {
   const [dbUser, setDbUser] = useState([]);
 
   useEffect(() => {
-    // fetch(`http://localhost:5000/user?email=${authUser?.email}`)
     fetch(`http://localhost:5000/user/${authUser?.email}`)
       .then((res) => res.json())
       .then((data) => setDbUser(data));
   }, [dbUser]);
-  // console.log(dbUser);
-  // const [dbUser, isLoading, refetch] = useDBUser(authUser?.email);
 
   const handleProfileUpdate = (e) => {
     e.preventDefault();
 
     const name = e.target.name.value || dbUser[0].name;
-    // const birthday = e.target.birthday.value || dbUser.birthday;
+
     const phone = e.target.phone.value || dbUser[0].phone;
-    // const sex = e.target.sex.value || dbUser[0].sex;
+
     const bio = e.target.bio.value || dbUser[0].bio;
     const photo = e.target.photo.value || dbUser[0].photo;
-    // console.log(name, birthday, phone, sex, bio, photo);
+
     const updatedProfile = {
       name,
-      // birthday,
+
       phone,
-      // sex,
+
       bio,
       photo,
     };
@@ -144,19 +141,6 @@ const Profile = () => {
                       className="input input-sm input-bordered w-full max-w-xs"
                     />
                   </div>
-                  {/* <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                      <span className="label-text text-white">
-                        Date of Birth
-                      </span>
-                    </label>
-                    <input
-                      name="birthday"
-                      type="date"
-                      placeholder="Type here"
-                      className="input input-sm input-bordered w-full max-w-xs"
-                    />
-                  </div> */}
                 </div>
                 <div className="flex gap-4 justify-between mt-4">
                   <div className="form-control w-full max-w-xs">
@@ -170,22 +154,6 @@ const Profile = () => {
                       className="input input-sm input-bordered w-full max-w-xs"
                     />
                   </div>
-                  {/* <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                      <span className="label-text text-white">Sex</span>
-                    </label>
-                    <select
-                      name="sex"
-                      className="select select-sm select-bordered w-full max-w-xs"
-                    >
-                      <option disabled selected>
-                    
-                      </option>
-                      <option>Male</option>
-                      <option>Female</option>
-                      <option>Common</option>
-                    </select>
-                  </div> */}
                 </div>
                 <div className="flex gap-4 justify-between mt-4">
                   <div className="form-control w-full">

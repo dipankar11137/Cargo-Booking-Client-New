@@ -13,15 +13,11 @@ import "../../CSS/DashboardStyle.css";
 import cargo from "../../../Images/Cargo logo/cargo1.png";
 
 const Dashboard = () => {
-  const [users, setUsers] = useState([]);
   const handleToggle = () => {
     const navigation = document.querySelector(".navigation");
     navigation.classList.toggle("active");
   };
-  const handleSelect = () => {
-    const navigation = document.querySelector(".navigation");
-    navigation.classList.toggle("select");
-  };
+
   return (
     <div className="bg-slate-900 text-white">
       <div>
