@@ -31,7 +31,7 @@ const BookingModal = ({ counseling, selectDate, setCounseling, refetch }) => {
       date,
       slot,
       description,
-      phone,
+      phone: phone || ship[0]?.phone,
       name: ship[0]?.name,
       img: ship[0]?.img,
       email,
