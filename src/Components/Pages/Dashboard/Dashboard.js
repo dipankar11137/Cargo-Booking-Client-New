@@ -79,14 +79,16 @@ const Dashboard = () => {
                   <span className="title">Booking</span>
                 </Link>
               </li>
-              <li>
-                <Link className="aLink" to="/booking">
-                  <span className="icon">
-                    <FaEdit className="text-4xl mt-3 ml-2" />
-                  </span>
-                  <span className="title">Manage Booking</span>
-                </Link>
-              </li>
+              {user && (
+                <li>
+                  <Link className="aLink" to="/booking">
+                    <span className="icon">
+                      <FaEdit className="text-4xl mt-3 ml-2" />
+                    </span>
+                    <span className="title">Manage Booking</span>
+                  </Link>
+                </li>
+              )}
               <li className="mt-64">
                 <Link className="aLink" to="/profile">
                   <span className="icon">
