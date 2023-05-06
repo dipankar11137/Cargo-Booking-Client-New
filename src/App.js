@@ -14,6 +14,7 @@ import Profile from "./Components/Pages/Dashboard/Profile/Profile";
 import AppointmentBanner from "./Components/Pages/Dashboard/Appointment/AppointmentBanner/AppointmentBanner";
 import Appointment from "./Components/Pages/Dashboard/Appointment/Appointment/Appointment";
 import Bookings from "./Components/Pages/Dashboard/Boooking/Bookings";
+import RequireAuth from "./Components/Login/RequireAUth";
 
 function App() {
   return (
@@ -25,7 +26,14 @@ function App() {
         <Route path="/*" element={<NotFound />}></Route>
 
         {/* Dashboard Start */}
-        <Route path="/" element={<Dashboard />}>
+        <Route
+          path="/"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
           <Route index element={<Home />} />
           <Route path="booking" element={<Bookings />} />
           <Route path="appointment" element={<Appointment />} />

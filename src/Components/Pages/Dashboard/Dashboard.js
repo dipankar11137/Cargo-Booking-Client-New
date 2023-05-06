@@ -79,7 +79,7 @@ const Dashboard = () => {
                   <span className="title">Booking</span>
                 </Link>
               </li>
-              {user && (
+              {user.email === "abc@def.com" && (
                 <li>
                   <Link className="aLink" to="/booking">
                     <span className="icon">
