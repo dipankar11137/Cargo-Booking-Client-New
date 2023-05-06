@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Booking from "./Booking";
+import { toast } from "react-toastify";
 
 const Bookings = () => {
   const [bookings, setBooking] = useState([]);
@@ -10,10 +11,22 @@ const Bookings = () => {
   }, [bookings]);
 
   const handleDelete = (id) => {
-    console.log(id);
+    const proceed = window.confirm("Are You Sure ?");
+    if (proceed) {
+      const url = `http://localhost:5000/bookings/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const remaining = bookings.filter((booking) => booking._id !== id);
+          setBooking(remaining);
+          toast.success("Successfully Delivered ");
+        });
+    }
   };
   return (
-    <div className="">
+    <div className="px-1">
       <h1 className="text-2xl font-semibold text-center py-5">
         Manage All Booking
       </h1>
