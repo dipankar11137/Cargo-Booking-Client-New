@@ -13,7 +13,7 @@ const Profile = () => {
     fetch(`http://localhost:5000/user/${authUser?.email}`)
       .then((res) => res.json())
       .then((data) => setDbUser(data));
-  }, [dbUser]);
+  }, [dbUser, authUser]);
 
   const handleProfileUpdate = (e) => {
     e.preventDefault();
