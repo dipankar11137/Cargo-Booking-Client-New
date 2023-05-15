@@ -21,6 +21,7 @@ const Profile = () => {
     const name = e.target.name.value || dbUser[0].name;
 
     const phone = e.target.phone.value || dbUser[0].phone;
+    const country = e.target.country.value || dbUser[0].country;
 
     const bio = e.target.bio.value || dbUser[0].bio;
     const photo = e.target.photo.value || dbUser[0].photo;
@@ -29,10 +30,11 @@ const Profile = () => {
       name,
 
       phone,
-
+      country,
       bio,
       photo,
     };
+
     fetch(`http://localhost:5000/create-user/${dbUser?.email}`, {
       method: "PUT",
       headers: {
@@ -45,7 +47,6 @@ const Profile = () => {
         toast.success("Profile Successfully Updated");
         e.target.reset();
         setEdit(false);
-        // refetch();
       });
   };
   const profilePic =
@@ -142,6 +143,7 @@ const Profile = () => {
                     />
                   </div>
                 </div>
+                {/* contact */}
                 <div className="flex gap-4 justify-between mt-4">
                   <div className="form-control w-full max-w-xs">
                     <label className="label">
@@ -155,6 +157,21 @@ const Profile = () => {
                     />
                   </div>
                 </div>
+                {/* country */}
+                <div className="flex gap-4 justify-between mt-4">
+                  <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                      <span className="label-text text-white">Country</span>
+                    </label>
+                    <input
+                      name="country"
+                      type="text"
+                      placeholder="Type here Your country name"
+                      className="input input-sm input-bordered w-full max-w-xs"
+                    />
+                  </div>
+                </div>
+                {/* bio */}
                 <div className="flex gap-4 justify-between mt-4">
                   <div className="form-control w-full">
                     <label className="label">

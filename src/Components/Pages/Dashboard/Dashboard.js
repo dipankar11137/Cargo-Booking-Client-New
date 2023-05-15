@@ -7,7 +7,6 @@ import {
   FaEdit,
   FaSignOutAlt,
   FaUserAlt,
-  FaShip,
 } from "react-icons/fa";
 import "../../CSS/DashboardStyle.css";
 import cargo from "../../../Images/Cargo logo/cargo1.png";
