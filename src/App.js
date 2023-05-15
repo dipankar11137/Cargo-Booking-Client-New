@@ -15,6 +15,7 @@ import AppointmentBanner from "./Components/Pages/Dashboard/Appointment/Appointm
 import Appointment from "./Components/Pages/Dashboard/Appointment/Appointment/Appointment";
 import Bookings from "./Components/Pages/Dashboard/Boooking/Bookings";
 import RequireAuth from "./Components/Login/RequireAUth";
+import Contact from "./Components/Pages/Dashboard/Contact.js/Contact";
 
 function App() {
   return (
@@ -38,8 +39,7 @@ function App() {
           <Route path="booking" element={<Bookings />} />
           <Route path="appointment" element={<Appointment />} />
           <Route path="profile" element={<Profile />} />
-          {/* <Route path="manageCounseling" element={<ManageCounselings />} />
-          <Route path="myApplied" element={<MyApplieds />} /> */}
+          <Route path="contact" element={<Contact />} />
         </Route>
         {/* Dashboard End */}
       </Routes>

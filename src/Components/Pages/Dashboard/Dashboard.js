@@ -8,6 +8,7 @@ import {
   FaSignOutAlt,
   FaUserAlt,
 } from "react-icons/fa";
+import { BsFillTelephoneFill } from "react-icons/bs";
 import "../../CSS/DashboardStyle.css";
 import cargo from "../../../Images/Cargo logo/cargo1.png";
 import { useEffect } from "react";
@@ -88,7 +89,15 @@ const Dashboard = () => {
                   </Link>
                 </li>
               )}
-              <li className="mt-64">
+              <li className="mt-52">
+                <Link className="aLink" to="/contact">
+                  <span className="icon">
+                    <BsFillTelephoneFill className="text-4xl mt-3 ml-2" />
+                  </span>
+                  <span className="title">Contact</span>
+                </Link>
+              </li>
+              <li className="">
                 <Link className="aLink" to="/profile">
                   <span className="icon">
                     <FaUserAlt className="text-4xl mt-3 ml-2" />
