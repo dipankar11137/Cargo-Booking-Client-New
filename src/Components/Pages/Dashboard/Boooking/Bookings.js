@@ -25,6 +25,21 @@ const Bookings = () => {
         });
     }
   };
+
+  const handleAccept = id => {
+    const updateAccept = { accept: true };
+    fetch(`http://localhost:5000/bookingAccept/${id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(updateAccept),
+    })
+      .then(res => res.json())
+      .then(data => {
+        toast.success('Accept Done ');
+      });
+  };
   return (
     <div className="px-1">
       <h1 className="text-3xl font-semibold text-center py-5 pr-20">
@@ -42,6 +57,7 @@ const Bookings = () => {
               <th className="bg-slate-700 text-xl">Slot</th>
               <th className="bg-slate-700 text-xl">Phone</th>
               <th className="bg-slate-700 text-xl">Description</th>
+              <th className="bg-slate-700 text-xl">Status</th>
               <th className="bg-slate-700 text-xl">Delivery</th>
             </tr>
           </thead>
@@ -52,6 +68,7 @@ const Bookings = () => {
                 booking={booking}
                 index={index + 1}
                 handleDelete={handleDelete}
+                handleAccept={handleAccept}
               ></Booking>
             ))}
           </tbody>

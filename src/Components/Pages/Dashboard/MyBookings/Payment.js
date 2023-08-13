@@ -38,12 +38,12 @@ const Payment = () => {
       .then(res => res.json())
       .then(data => {
         toast.success('Payment Successfully');
-        navigation('/myBookings');
+        navigation('/myBooking');
       });
   };
   const handleCancel = () => {
     toast.error('Payment Cancel');
-    navigation('/myBookings');
+    navigation('/myBooking');
   };
   return (
     <div className="bg-slate-900 h-screen">
