@@ -9,8 +9,9 @@ import RequireAuth from "./Components/Login/RequireAUth";
 import Appointment from "./Components/Pages/Dashboard/Appointment/Appointment/Appointment";
 import Bookings from "./Components/Pages/Dashboard/Boooking/Bookings";
 import Contact from "./Components/Pages/Dashboard/Contact.js/Contact";
-import Dashboard from "./Components/Pages/Dashboard/Dashboard";
-import MyBookings from "./Components/Pages/Dashboard/MyBookings/MyBookings";
+import ManageContacts from './Components/Pages/Dashboard/Contact.js/Manage Contact/ManageContacts';
+import Dashboard from './Components/Pages/Dashboard/Dashboard';
+import MyBookings from './Components/Pages/Dashboard/MyBookings/MyBookings';
 import Payment from './Components/Pages/Dashboard/MyBookings/Payment';
 import Profile from './Components/Pages/Dashboard/Profile/Profile';
 import Home from './Components/Pages/Home/Home';
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/createAccount" element={<CreateAccount />}></Route>
         <Route path="/payment/:id" element={<Payment />} />
+
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
 
@@ -39,7 +41,7 @@ function App() {
           <Route path="booking" element={<Bookings />} />
           <Route path="myBooking" element={<MyBookings />} />
           <Route path="appointment" element={<Appointment />} />
-
+          <Route path="manageContact" element={<ManageContacts />} />
           <Route path="profile" element={<Profile />} />
           <Route path="contact" element={<Contact />} />
         </Route>

@@ -48,7 +48,7 @@ const Contact = () => {
                 <input
                   type="text"
                   placeholder="Your name"
-                  className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner"
+                  className="input input-bordered bg-white text-black w-full   hover:shadow-xl shadow-inner"
                   {...register('name', {
                     required: {
                       value: true,
@@ -75,7 +75,7 @@ const Contact = () => {
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner"
+                  className="input input-bordered bg-white text-black w-full   hover:shadow-xl shadow-inner"
                   {...register('email', {
                     required: {
                       value: true,
@@ -110,7 +110,7 @@ const Contact = () => {
                 <input
                   type="phone"
                   placeholder="Phone Number"
-                  className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner"
+                  className="input input-bordered bg-white w-full text-black  hover:shadow-xl shadow-inner"
                   {...register('phone', {
                     required: {
                       value: true,
@@ -141,7 +141,7 @@ const Contact = () => {
                 <textarea
                   type="text"
                   placeholder="Description"
-                  className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner pt-1 h-20"
+                  className="input input-bordered bg-white w-full  text-black hover:shadow-xl shadow-inner pt-1 h-20"
                   {...register('description', {
                     required: {
                       value: true,

@@ -9,11 +9,12 @@ import {
   FaSignOutAlt,
   FaUserAlt,
 } from "react-icons/fa";
+import { IoIosContacts } from 'react-icons/io';
 import { TbBrandBooking } from 'react-icons/tb';
-import { Link, Outlet } from "react-router-dom";
-import cargo from "../../../Images/Cargo logo/cargo1.png";
-import auth from "../../../firebase.init";
-import "../../CSS/DashboardStyle.css";
+import { Link, Outlet } from 'react-router-dom';
+import cargo from '../../../Images/Cargo logo/cargo1.png';
+import auth from '../../../firebase.init';
+import '../../CSS/DashboardStyle.css';
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -22,13 +23,13 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetch(`http://localhost:5000/user/${authUser?.email}`)
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
+      .then(res => res.json())
+      .then(data => setUsers(data));
   }, [users, authUser?.email]);
 
   const handleToggle = () => {
-    const navigation = document.querySelector(".navigation");
-    navigation.classList.toggle("active");
+    const navigation = document.querySelector('.navigation');
+    navigation.classList.toggle('active');
   };
 
   const handleSignOut = () => {
@@ -96,7 +97,15 @@ const Dashboard = () => {
                   <span className="title">My Booking</span>
                 </Link>
               </li>
-              <li className="mt-40">
+              <li className="mt-28">
+                <Link className="aLink" to="/manageContact">
+                  <span className="icon">
+                    <IoIosContacts className="text-4xl mt-3 ml-2" />
+                  </span>
+                  <span className="title">Manage Contact</span>
+                </Link>
+              </li>
+              <li className="">
                 <Link className="aLink" to="/contact">
                   <span className="icon">
                     <BsFillTelephoneFill className="text-4xl mt-3 ml-2" />
