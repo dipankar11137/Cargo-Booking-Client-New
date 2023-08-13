@@ -54,7 +54,7 @@ const MyBooking = ({ booking, index, handleDelete }) => {
           </button>
         )}
       </td>
-      <td className="bg-slate-800 border-r-2">
+      <td className="bg-slate-800 ">
         <button
           onClick={() => handleDelete(_id)}
           className="bg-orange-600 px-3 py-1 rounded-md uppercase text-white font-semibold hover:bg-orange-500"

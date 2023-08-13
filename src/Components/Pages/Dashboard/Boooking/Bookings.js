@@ -2,13 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Booking from './Booking';
 
+const formatDate = inputDate => {
+  const date = new Date(inputDate);
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+};
+
 const Bookings = () => {
   const [bookings, setBooking] = useState([]);
+  const [date, setDate] = useState('');
+
+  // const formattedDate = formatDate(date);
+  // if (date) {
+  //   fetch(`http://localhost:5000/bookingDate/${formattedDate}`)
+  //     .then(res => res.json())
+  //     .then(data => setBooking(data));
+  // } else {
+  //   fetch('http://localhost:5000/bookings')
+  //     .then(res => res.json())
+  //     .then(data => setBooking(data));
+  // }
   useEffect(() => {
     fetch('http://localhost:5000/bookings')
       .then(res => res.json())
       .then(data => setBooking(data));
   }, [bookings]);
+
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/bookingDate/${formattedDate}`)
+  //     .then(res => res.json())
+  //     .then(data => setBooking(data));
+  // }, [formattedDate]);
 
   const handleDelete = id => {
     const proceed = window.confirm('Are You Sure ?');
@@ -48,6 +72,15 @@ const Bookings = () => {
       <h1 className="text-3xl font-semibold text-center py-5 pr-20">
         Manage All Booking
       </h1>
+      {/* <div className="flex justify-center p-2">
+        <input
+          onChange={e => setDate(e.target.value)}
+          className="text-black w-[300px] p-2 rounded-lg text-xl font-semibold"
+          type="date"
+          name=""
+          id=""
+        />
+      </div> */}
       <div className="overflow-x-auto">
         <table className="table  w-full text-white">
           <thead>

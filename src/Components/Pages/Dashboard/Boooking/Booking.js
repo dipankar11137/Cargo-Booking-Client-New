@@ -13,14 +13,14 @@ const Booking = ({
   return (
     <tr className="text-center">
       <th className="bg-slate-800">{index}</th>
-      <td className="bg-slate-800 border-r-2">{name}</td>
-      <td className="bg-slate-800 border-r-2">{shipCode}</td>
-      <td className="bg-slate-800 border-r-2">{terminalName}</td>
-      <td className="bg-slate-800 border-r-2">{date}</td>
-      <td className="bg-slate-800 border-r-2">{slot}</td>
-      <td className="bg-slate-800 border-r-2">{phone}</td>
-      <td className="bg-slate-800 border-r-2">{description}</td>
-      <td className="bg-slate-800 border-r-2">
+      <td className="bg-slate-800 ">{name}</td>
+      <td className="bg-slate-800 ">{shipCode}</td>
+      <td className="bg-slate-800 ">{terminalName}</td>
+      <td className="bg-slate-800 ">{date}</td>
+      <td className="bg-slate-800 ">{slot}</td>
+      <td className="bg-slate-800 ">{phone}</td>
+      <td className="bg-slate-800 ">{description}</td>
+      <td className="bg-slate-800 ">
         {booking?.payment ? (
           <>
             {booking?.accept ? (
@@ -38,7 +38,7 @@ const Booking = ({
           <h1 className="text-xl font-semibold">Unpaid</h1>
         )}
       </td>
-      <td className="bg-slate-800 border-r-2">
+      <td className="bg-slate-800 ">
         {booking?.payment ? (
           <>
             {booking?.accept ? (
