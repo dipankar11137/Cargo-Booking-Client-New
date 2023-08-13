@@ -13,15 +13,15 @@ const ManageContacts = () => {
   const handleDelete = id => {
     const proceed = window.confirm('Are You Sure ?');
     if (proceed) {
-      const url = `http://localhost:5000/contact/${id}`;
+      const url = `http://localhost:5000/contacts/${id}`;
       fetch(url, {
         method: 'DELETE',
       })
         .then(res => res.json())
         .then(data => {
-          const remaining = contacts.filter(booking => booking._id !== id);
+          const remaining = contacts.filter(contact => contact._id !== id);
           setContact(remaining);
-          toast.success('Successfully Delivered ');
+          toast.success('Successfully Remove ');
         });
     }
   };
