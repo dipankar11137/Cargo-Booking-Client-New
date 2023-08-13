@@ -65,7 +65,7 @@ const BookingModal = ({ counseling, selectDate, setCounseling, refetch }) => {
         <div className="modal-box relative">
           <label
             htmlFor="booking-modal"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
+            className="btn btn-sm btn-primary btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
@@ -101,7 +101,11 @@ const BookingModal = ({ counseling, selectDate, setCounseling, refetch }) => {
               className="input input-bordered input-primary w-full  mt-2"
             />
 
-            <input className="w-full mt-5 btn " type="submit" value="Submit" />
+            <input
+              className="w-full mt-5 btn btn-primary"
+              type="submit"
+              value="Submit"
+            />
           </form>
         </div>
       </div>

@@ -89,14 +89,14 @@ const Dashboard = () => {
                 </li>
               )}
               <li>
-                <Link className="aLink" to="/booking">
+                <Link className="aLink" to="/myBooking">
                   <span className="icon">
                     <TbBrandBooking className="text-4xl mt-3 ml-2" />
                   </span>
                   <span className="title">My Booking</span>
                 </Link>
               </li>
-              <li className="mt-52">
+              <li className="mt-40">
                 <Link className="aLink" to="/contact">
                   <span className="icon">
                     <BsFillTelephoneFill className="text-4xl mt-3 ml-2" />
