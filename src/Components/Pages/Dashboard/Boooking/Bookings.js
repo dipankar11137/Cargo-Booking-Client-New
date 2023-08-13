@@ -40,6 +40,9 @@ const Bookings = () => {
         toast.success('Accept Done ');
       });
   };
+  const handleDelivery = id => {
+    toast.success('Delivery Done ');
+  };
   return (
     <div className="px-1">
       <h1 className="text-3xl font-semibold text-center py-5 pr-20">
@@ -69,6 +72,7 @@ const Bookings = () => {
                 index={index + 1}
                 handleDelete={handleDelete}
                 handleAccept={handleAccept}
+                handleDelivery={handleDelivery}
               ></Booking>
             ))}
           </tbody>

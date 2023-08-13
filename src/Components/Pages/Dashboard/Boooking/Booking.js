@@ -1,6 +1,12 @@
 import React from "react";
 
-const Booking = ({ booking, index, handleDelete, handleAccept }) => {
+const Booking = ({
+  booking,
+  index,
+  handleDelete,
+  handleAccept,
+  handleDelivery,
+}) => {
   const { _id, name, shipCode, terminalName, date, slot, phone, description } =
     booking;
 
@@ -29,28 +35,29 @@ const Booking = ({ booking, index, handleDelete, handleAccept }) => {
             )}
           </>
         ) : (
-          // <button
-          //   onClick={() => handleAccept(_id)}
-          //   className="bg-lime-600 px-3 py-1 rounded-md uppercase text-white font-semibold hover:bg-lime-700"
-          // >
-          //   Accept
-          // </button>
           <h1 className="text-xl font-semibold">Unpaid</h1>
         )}
       </td>
       <td className="bg-slate-800 border-r-2">
         {booking?.payment ? (
-          <button
-            onClick={() => handleDelete(_id)}
-            className="bg-orange-600 px-3 py-1 rounded-md uppercase text-white font-semibold hover:bg-orange-700"
-            disabled
-          >
-            Remove
-          </button>
+          <>
+            {booking?.accept ? (
+              <button
+                onClick={() => handleDelivery(_id)}
+                className="btn btn-sm btn-primary  rounded-md uppercase text-white font-semibold "
+              >
+                Done
+              </button>
+            ) : (
+              <h1 className="text-xl text-orange-400 font-semibold">
+                Wait Accept
+              </h1>
+            )}
+          </>
         ) : (
           <button
             onClick={() => handleDelete(_id)}
-            className="bg-orange-600 px-3 py-1 rounded-md uppercase text-white font-semibold hover:bg-orange-700 "
+            className="btn btn-sm rounded-md uppercase text-white font-semibold  "
           >
             Remove
           </button>
