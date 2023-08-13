@@ -1,48 +1,48 @@
-import React, { useEffect, useState } from "react";
-import Booking from "./Booking";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import Booking from './Booking';
 
 const Bookings = () => {
   const [bookings, setBooking] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/bookings")
-      .then((res) => res.json())
-      .then((data) => setBooking(data));
+    fetch('http://localhost:5000/bookings')
+      .then(res => res.json())
+      .then(data => setBooking(data));
   }, [bookings]);
 
-  const handleDelete = (id) => {
-    const proceed = window.confirm("Are You Sure ?");
+  const handleDelete = id => {
+    const proceed = window.confirm('Are You Sure ?');
     if (proceed) {
       const url = `http://localhost:5000/bookings/${id}`;
       fetch(url, {
-        method: "DELETE",
+        method: 'DELETE',
       })
-        .then((res) => res.json())
-        .then((data) => {
-          const remaining = bookings.filter((booking) => booking._id !== id);
+        .then(res => res.json())
+        .then(data => {
+          const remaining = bookings.filter(booking => booking._id !== id);
           setBooking(remaining);
-          toast.success("Successfully Delivered ");
+          toast.success('Successfully Delivered ');
         });
     }
   };
   return (
     <div className="px-1">
-      <h1 className="text-2xl font-semibold text-center py-5">
+      <h1 className="text-3xl font-semibold text-center py-5 pr-20">
         Manage All Booking
       </h1>
       <div className="overflow-x-auto">
-        <table className="table  w-full text-black">
+        <table className="table  w-full text-white">
           <thead>
-            <tr className="text-3xl">
-              <th></th>
-              <th>Ship Name</th>
-              <th>Ship Code</th>
-              <th>Terminal</th>
-              <th>Date</th>
-              <th>Slot</th>
-              <th>Phone</th>
-              <th>Description</th>
-              <th>Delivery</th>
+            <tr className="text-3xl bg-slate-900 text-center">
+              <th className="bg-slate-700 text-xl"></th>
+              <th className="bg-slate-700 text-xl">Ship Name</th>
+              <th className="bg-slate-700 text-xl">Ship Code</th>
+              <th className="bg-slate-700 text-xl">Terminal</th>
+              <th className="bg-slate-700 text-xl">Date</th>
+              <th className="bg-slate-700 text-xl">Slot</th>
+              <th className="bg-slate-700 text-xl">Phone</th>
+              <th className="bg-slate-700 text-xl">Description</th>
+              <th className="bg-slate-700 text-xl">Delivery</th>
             </tr>
           </thead>
           <tbody>
