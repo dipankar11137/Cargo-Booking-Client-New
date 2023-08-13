@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../../../../firebase.init';
 import MyBooking from './MyBooking';
 
 const MyBookings = () => {
+  const [users] = useAuthState(auth);
   const [bookings, setBooking] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/bookings')
+    fetch(`http://localhost:5000/myBookings/${users?.email}`)
       .then(res => res.json())
       .then(data => setBooking(data));
   }, [bookings]);
@@ -41,9 +44,10 @@ const MyBookings = () => {
                 <th className="bg-slate-700 text-xl">Terminal</th>
                 <th className="bg-slate-700 text-xl">Date</th>
                 <th className="bg-slate-700 text-xl">Slot</th>
-                <th className="bg-slate-700 text-xl">Phone</th>
-                <th className="bg-slate-700 text-xl">Description</th>
-                <th className="bg-slate-700 text-xl">Delivery</th>
+                <th className="bg-slate-700 text-xl">Payment</th>
+                {/* <th className="bg-slate-700 text-xl">Phone</th>
+                <th className="bg-slate-700 text-xl">Description</th> */}
+                <th className="bg-slate-700 text-xl">Remove</th>
               </tr>
             </thead>
             <tbody>
