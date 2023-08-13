@@ -1,20 +1,19 @@
-import React from "react";
-import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { BsFillTelephoneFill } from "react-icons/bs";
 import {
+  FaEdit,
   FaHome,
   FaPeopleArrows,
-  FaEdit,
   FaSignOutAlt,
   FaUserAlt,
 } from "react-icons/fa";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import "../../CSS/DashboardStyle.css";
+import { TbBrandBooking } from 'react-icons/tb';
+import { Link, Outlet } from "react-router-dom";
 import cargo from "../../../Images/Cargo logo/cargo1.png";
-import { useEffect } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
-import { signOut } from "firebase/auth";
+import "../../CSS/DashboardStyle.css";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -51,7 +50,7 @@ const Dashboard = () => {
           <div className="drawer-side navigation ">
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
             <ul className="  ">
-              <li style={{ marginLeft: "-12px", marginBottom: "100px" }}>
+              <li style={{ marginLeft: '-12px', marginBottom: '100px' }}>
                 <Link to="/" className="aLink flex justify-center">
                   <img
                     className="h-20 w-20 rounded-full"
@@ -79,7 +78,7 @@ const Dashboard = () => {
                   <span className="title">Booking</span>
                 </Link>
               </li>
-              {user.email === "abc@def.com" && (
+              {user.email === 'abc@def.com' && (
                 <li>
                   <Link className="aLink" to="/booking">
                     <span className="icon">
@@ -89,6 +88,14 @@ const Dashboard = () => {
                   </Link>
                 </li>
               )}
+              <li>
+                <Link className="aLink" to="/booking">
+                  <span className="icon">
+                    <TbBrandBooking className="text-4xl mt-3 ml-2" />
+                  </span>
+                  <span className="title">My Booking</span>
+                </Link>
+              </li>
               <li className="mt-52">
                 <Link className="aLink" to="/contact">
                   <span className="icon">

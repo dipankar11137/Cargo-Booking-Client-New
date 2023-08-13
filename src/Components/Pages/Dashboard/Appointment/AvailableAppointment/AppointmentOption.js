@@ -1,6 +1,6 @@
 import React from "react";
-import "../../../../CSS/PicStyle.css";
 import "../../../../CSS/Button.css";
+import "../../../../CSS/PicStyle.css";
 
 const AppointmentOption = ({ option, setCounseling }) => {
   const { name, slots } = option;
@@ -46,7 +46,7 @@ const AppointmentOption = ({ option, setCounseling }) => {
             disabled={slots.length === 0}
             onClick={() => setCounseling(option)}
             htmlFor="booking-modal"
-            className="button1 btn text-xl bg-indigo-700 text-white font-bold mt-3 "
+            className="button1 btn btn-primary text-xl  text-white font-bold mt-3 "
           >
             Book Terminal
           </label>
